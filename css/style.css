@@ -152,7 +152,16 @@ a {
     align-items: center;
     gap: 12px;
 }
+.logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+}
 
+/* Opcional: Ajusta el logo en el footer */
+.footer .logo-img {
+    filter: brightness(0) invert(1); /* Convierte logo blanco para el footer oscuro */
+}
 .logo-icon {
     width: 48px;
     height: 48px;
