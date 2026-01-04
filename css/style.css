@@ -6,15 +6,27 @@
 }
 
 :root {
-    /* Paleta MisaGatech - Colores del logo */
-    --primary-dark: #233766;     /* Azul oscuro */
-    --primary-color: #2F4280;    /* Azul principal */
-    --accent-color: #FF4759;     /* Rojo coral - color de acento */
+    /* ============================================
+       PALETA MISAGATECH MEJORADA - MINIMALISTA
+       ============================================ */
+    
+    /* Colores principales (tu identidad) */
+    --primary-dark: #233766;     /* Azul oscuro - Color principal */
+    --primary-color: #3A4D8C;    /* Azul principal - Más claro para mejor contraste */
+    
+    /* Colores de acento (rojo coral - uso estratégico) */
+    --accent-color: #FF4759;     /* Rojo coral - SOLO para elementos destacados */
     --accent-light: #FF6B7A;     /* Rojo coral claro */
     --accent-dark: #E03E4E;      /* Rojo coral oscuro */
     
+    /* Colores para botones (más elegantes) */
+    --btn-primary: #3A4D8C;      /* Azul para botones primarios */
+    --btn-primary-hover: #233766; /* Azul oscuro al hover */
+    --btn-secondary: transparent; /* Transparente para botones secundarios */
+    --btn-secondary-border: #233766; /* Borde azul oscuro */
+    
     /* Colores neutrales minimalistas */
-    --dark-color: #1A1A2E;       /* Casi negro azulado */
+    --dark-color: #1A1A2E;       /* Casi negro azulado para textos */
     --dark-gray: #2D3047;        /* Gris oscuro */
     --gray-color: #6B7280;       /* Gris medio */
     --gray-light: #E5E7EB;       /* Gris claro */
@@ -22,15 +34,15 @@
     --white: #FFFFFF;
     
     /* Colores de estado */
-    --success-color: #10B981;    /* Verde */
+    --success-color: #10B981;    /* Verde éxito */
     --error-color: #EF4444;      /* Rojo error */
     
-    /* Tipografía minimalista */
+    /* Tipografía minimalista moderna */
     --font-primary: 'Inter', sans-serif;
     --font-secondary: 'Manrope', sans-serif;
     
-    /* Sombras sutiles */
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    /* Sombras sutiles y elegantes */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
@@ -38,7 +50,7 @@
     /* Transiciones suaves */
     --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     
-    /* Bordes redondeados */
+    /* Bordes redondeados consistentes */
     --border-radius: 12px;
     --border-radius-sm: 8px;
     --border-radius-full: 50%;
@@ -51,7 +63,7 @@ html {
 body {
     font-family: var(--font-primary);
     color: var(--dark-color);
-    background-color: var(--light-color);
+    background-color: var(--white);
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -69,7 +81,9 @@ section {
     padding: 100px 0;
 }
 
-/* Tipografía minimalista */
+/* ============================================
+   TIPOGRAFÍA MINIMALISTA
+   ============================================ */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-secondary);
     font-weight: 700;
@@ -106,7 +120,9 @@ a {
     transition: var(--transition);
 }
 
-/* Botones minimalistas */
+/* ============================================
+   BOTONES MEJORADOS (MÁS ELEGANTES)
+   ============================================ */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -123,30 +139,35 @@ a {
     letter-spacing: 0.01em;
 }
 
+/* Botón primario - AZUL elegante */
 .btn-primary {
-    background-color: var(--accent-color);
+    background-color: var(--btn-primary);
     color: var(--white);
     box-shadow: var(--shadow-md);
+    border: 2px solid var(--btn-primary);
 }
 
 .btn-primary:hover {
-    background-color: var(--accent-dark);
+    background-color: var(--btn-primary-hover);
+    border-color: var(--btn-primary-hover);
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
 
+/* Botón secundario - Contorno azul oscuro */
 .btn-secondary {
-    background-color: transparent;
-    color: var(--primary-dark);
-    border: 2px solid var(--primary-dark);
+    background-color: var(--btn-secondary);
+    color: var(--btn-secondary-border);
+    border: 2px solid var(--btn-secondary-border);
 }
 
 .btn-secondary:hover {
-    background-color: var(--primary-dark);
+    background-color: var(--btn-secondary-border);
     color: var(--white);
     transform: translateY(-2px);
 }
 
+/* Variantes de botones */
 .btn-large {
     padding: 18px 40px;
     font-size: 1.125rem;
@@ -156,7 +177,9 @@ a {
     width: 100%;
 }
 
-/* Header minimalista */
+/* ============================================
+   HEADER MINIMALISTA
+   ============================================ */
 .header {
     position: fixed;
     top: 0;
@@ -226,6 +249,7 @@ a {
     letter-spacing: 0.01em;
 }
 
+/* Enlaces activos en ROJO CORAL (acento estratégico) */
 .nav-link:hover, .nav-link.active {
     color: var(--accent-color);
 }
@@ -238,6 +262,7 @@ a {
     width: 100%;
     height: 2px;
     background-color: var(--accent-color);
+    border-radius: 1px;
 }
 
 .nav-actions {
@@ -262,12 +287,15 @@ a {
     background-color: var(--gray-light);
 }
 
-/* Hero Section minimalista */
+/* ============================================
+   HERO SECTION CON IMAGEN (OPCIÓN B MEJORADA)
+   ============================================ */
 .hero {
     padding-top: 160px;
     padding-bottom: 100px;
     overflow: hidden;
     position: relative;
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
 }
 
 .hero::before {
@@ -275,11 +303,11 @@ a {
     position: absolute;
     top: 0;
     right: 0;
-    width: 60%;
+    width: 40%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(35, 55, 102, 0.03) 0%, rgba(255, 71, 89, 0.03) 100%);
+    background: linear-gradient(135deg, rgba(35, 55, 102, 0.03) 0%, rgba(255, 71, 89, 0.02) 100%);
     border-radius: 0 0 0 200px;
-    z-index: -1;
+    z-index: 0;
 }
 
 .hero .container {
@@ -287,6 +315,8 @@ a {
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-title {
@@ -295,6 +325,7 @@ a {
     line-height: 1.1;
 }
 
+/* Texto destacado en ROJO CORAL */
 .highlight {
     color: var(--accent-color);
     position: relative;
@@ -318,6 +349,7 @@ a {
     margin-bottom: 2.5rem;
     color: var(--dark-gray);
     max-width: 90%;
+    line-height: 1.7;
 }
 
 .hero-actions {
@@ -326,82 +358,48 @@ a {
     flex-wrap: wrap;
 }
 
+/* Contenedor de la imagen del hero */
 .hero-image {
     position: relative;
-    height: 450px;
+    height: 500px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid rgba(229, 231, 235, 0.5);
 }
 
-.floating-shapes {
-    position: absolute;
+/* Imagen del hero */
+.hero-img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: var(--transition);
 }
 
-.shape {
-    position: absolute;
-    border-radius: var(--border-radius-full);
-    opacity: 0.1;
+.hero-img:hover {
+    transform: scale(1.02);
 }
 
-.shape-1 {
-    width: 200px;
-    height: 200px;
-    top: 0;
-    right: 0;
-    background: var(--primary-dark);
-}
-
-.shape-2 {
-    width: 120px;
-    height: 120px;
-    bottom: 80px;
-    left: 20px;
-    background: var(--accent-color);
-}
-
-.shape-3 {
-    width: 80px;
-    height: 80px;
-    bottom: 20px;
-    right: 150px;
-    background: var(--primary-color);
-}
-
-.dashboard-mockup {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 320px;
-    height: 220px;
+/* Si no tienes imagen, muestra un placeholder elegante */
+.hero-image:not(:has(.hero-img)) {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
     display: flex;
-    gap: 12px;
+    align-items: center;
+    justify-content: center;
 }
 
-.screen {
-    flex: 1;
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-xl);
-    overflow: hidden;
-    border: 1px solid var(--gray-light);
+.hero-image:not(:has(.hero-img))::before {
+    content: 'MisaGatech';
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-secondary);
 }
 
-.screen:nth-child(1) {
-    background: linear-gradient(135deg, #F0F5FF, #E6F0FF);
-}
-
-.screen:nth-child(2) {
-    background: linear-gradient(135deg, #FFF5F5, #FFE6E6);
-    margin-top: 30px;
-}
-
-.screen:nth-child(3) {
-    background: linear-gradient(135deg, #F0FFF4, #E6FFEE);
-    margin-top: 60px;
-}
-
-/* Section Header minimalista */
+/* ============================================
+   SECTION HEADER MINIMALISTA
+   ============================================ */
 .section-header {
     text-align: center;
     margin-bottom: 80px;
@@ -410,9 +408,10 @@ a {
 .section-title {
     position: relative;
     display: inline-block;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
+/* Línea decorativa en ROJO CORAL */
 .section-title::after {
     content: '';
     position: absolute;
@@ -430,9 +429,12 @@ a {
     color: var(--gray-color);
     max-width: 600px;
     margin: 2rem auto 0;
+    line-height: 1.7;
 }
 
-/* Services Section minimalista */
+/* ============================================
+   SERVICES SECTION MINIMALISTA
+   ============================================ */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -451,6 +453,7 @@ a {
     overflow: hidden;
 }
 
+/* Línea superior en degradado azul-rojo */
 .service-card::before {
     content: '';
     position: absolute;
@@ -488,7 +491,6 @@ a {
 }
 
 .service-card:hover .service-icon {
-    background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
     transform: scale(1.1);
 }
 
@@ -502,6 +504,7 @@ a {
     margin-bottom: 24px;
     color: var(--gray-color);
     font-size: 1.0625rem;
+    line-height: 1.7;
 }
 
 .service-features {
@@ -518,6 +521,7 @@ a {
     font-size: 0.95rem;
 }
 
+/* Check en ROJO CORAL */
 .service-features li::before {
     content: '✓';
     position: absolute;
@@ -527,7 +531,9 @@ a {
     font-size: 1.1rem;
 }
 
-/* About Section minimalista */
+/* ============================================
+   ABOUT SECTION MINIMALISTA
+   ============================================ */
 .about {
     background-color: var(--light-color);
     position: relative;
@@ -565,6 +571,7 @@ a {
     font-size: 1.0625rem;
 }
 
+/* Icono de check en ROJO CORAL */
 .feature i {
     color: var(--accent-color);
     font-size: 1.25rem;
@@ -593,6 +600,7 @@ a {
     border-color: var(--accent-color);
 }
 
+/* Número en ROJO CORAL */
 .stat-number {
     display: block;
     font-size: 3.5rem;
@@ -610,7 +618,9 @@ a {
     letter-spacing: 0.02em;
 }
 
-/* Contact Section minimalista */
+/* ============================================
+   CONTACT SECTION MINIMALISTA
+   ============================================ */
 .contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -644,6 +654,7 @@ a {
     color: var(--dark-color);
 }
 
+/* Enlaces de contacto en ROJO CORAL */
 .contact-link {
     color: var(--accent-color);
     font-weight: 500;
@@ -670,6 +681,7 @@ a {
     transition: var(--transition);
 }
 
+/* Hover en ROJO CORAL */
 .social-link:hover {
     color: var(--accent-color);
     transform: translateX(4px);
@@ -713,6 +725,7 @@ a {
     background-color: var(--light-color);
 }
 
+/* Focus en ROJO CORAL */
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -722,7 +735,9 @@ a {
     background-color: var(--white);
 }
 
-/* Footer minimalista */
+/* ============================================
+   FOOTER MINIMALISTA
+   ============================================ */
 .footer {
     background-color: var(--primary-dark);
     color: var(--white);
@@ -754,6 +769,7 @@ a {
     color: rgba(255, 255, 255, 0.7);
     margin-top: 20px;
     font-size: 1.0625rem;
+    line-height: 1.7;
 }
 
 .footer-title {
@@ -764,6 +780,7 @@ a {
     padding-bottom: 12px;
 }
 
+/* Línea en ROJO CORAL */
 .footer-title::after {
     content: '';
     position: absolute;
@@ -786,6 +803,7 @@ a {
     transition: var(--transition);
 }
 
+/* Hover en ROJO CORAL */
 .footer-link:hover {
     color: var(--accent-color);
     padding-left: 8px;
@@ -829,6 +847,7 @@ a {
     transition: var(--transition);
 }
 
+/* Hover en ROJO CORAL */
 .social-icon:hover {
     background-color: var(--accent-color);
     transform: translateY(-3px);
@@ -860,11 +879,14 @@ a {
     transition: var(--transition);
 }
 
+/* Hover en ROJO CORAL */
 .legal-link:hover {
     color: var(--accent-color);
 }
 
-/* Responsive Styles */
+/* ============================================
+   ESTILOS RESPONSIVE
+   ============================================ */
 @media (max-width: 1200px) {
     h1 {
         font-size: 3rem;
@@ -876,6 +898,10 @@ a {
     
     .hero .container {
         gap: 60px;
+    }
+    
+    .hero-image {
+        height: 450px;
     }
 }
 
@@ -902,6 +928,11 @@ a {
     
     .hero-actions {
         justify-content: center;
+    }
+    
+    .hero-image {
+        height: 400px;
+        order: -1; /* Imagen primero en móviles */
     }
     
     .about-content {
@@ -966,6 +997,10 @@ a {
         max-width: 300px;
     }
     
+    .hero-image {
+        height: 350px;
+    }
+    
     .about-stats {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -1008,6 +1043,10 @@ a {
         padding-bottom: 80px;
     }
     
+    .hero-image {
+        height: 300px;
+    }
+    
     .service-card, .contact-form-container {
         padding: 32px 24px;
     }
@@ -1025,4 +1064,63 @@ a {
         grid-template-columns: 1fr;
         gap: 40px;
     }
+    
+    .logo-img {
+        height: 40px;
+    }
+}
+
+/* ============================================
+   ANIMACIONES SUTILES
+   ============================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* ============================================
+   ESTILOS PARA FORMULARIOS MEJORADOS
+   ============================================ */
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236B7280' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+    padding-right: 48px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ============================================
+   ESTILOS PARA SCROLLBAR ELEGANTE
+   ============================================ */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
 }
