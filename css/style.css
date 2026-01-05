@@ -178,18 +178,30 @@ a {
 }
 
 /* ============================================
-   HEADER MINIMALISTA CON LOGO MÁS GRANDE
+   HEADER CON GRADIENTE SUTIL (VERSIÓN MEJORADA)
    ============================================ */
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.98);
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.98) 0%, 
+        rgba(248, 250, 252, 0.98) 100%);
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+    box-shadow: 0 4px 6px -1px rgba(35, 55, 102, 0.05);
     transition: var(--transition);
+}
+
+/* Efecto cuando haces scroll */
+.header.scrolled {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.99) 0%, 
+        rgba(248, 250, 252, 0.99) 100%);
+    box-shadow: 0 6px 10px -1px rgba(35, 55, 102, 0.08);
+    border-bottom-color: rgba(229, 231, 235, 0.9);
 }
 
 .navbar {
@@ -199,26 +211,43 @@ a {
     padding: 20px 0;
 }
 
+/* CONTENEDOR DEL LOGO CON FONDO GRADIENTE SUTIL */
 .logo {
     display: flex;
     align-items: center;
-    gap: 16px;
+    position: relative;
+    padding: 12px 20px 12px 12px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.95) 0%, 
+        rgba(248, 250, 252, 0.95) 100%);
+    box-shadow: 0 3px 10px rgba(35, 55, 102, 0.08);
+    transition: var(--transition);
+    z-index: 10;
 }
 
-/* ============================================
-   LOGO - VERSIÓN CORREGIDA (MÁS GRANDE Y RESPONSIVE)
-   ============================================ */
+/* Efecto hover elegante en el contenedor del logo */
+.logo:hover {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 1) 0%, 
+        rgba(248, 250, 252, 1) 100%);
+    box-shadow: 0 5px 15px rgba(35, 55, 102, 0.12);
+    transform: translateY(-1px);
+}
 
-/* Logo en HEADER - MÁS GRANDE para web */
+/* LOGO MÁS GRANDE Y CON SOMBRA */
 .logo-img {
-    height: 70px;           /* AUMENTÉ de 50px a 70px - MÁS GRANDE */
+    height: 75px;           /* Aumentado para mejor visibilidad */
     width: auto;
     object-fit: contain;
     transition: var(--transition);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
+/* Efecto hover en la imagen del logo */
 .logo:hover .logo-img {
-    transform: scale(1.05);
+    transform: scale(1.04);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
 }
 
 /* Elimina estas clases si no las usas */
@@ -925,8 +954,16 @@ a {
         height: 450px;
     }
     
-    /* Logo en tablet - un poco más pequeño */
-    .logo-img, .footer-logo {
+    /* Logo en tablet */
+    .logo-img {
+        height: 65px;
+    }
+    
+    .logo {
+        padding: 10px 16px 10px 10px;
+    }
+    
+    .footer-logo {
         height: 65px;
     }
 }
@@ -963,7 +1000,16 @@ a {
     }
     
     /* Logo en tablet pequeña */
-    .logo-img, .footer-logo {
+    .logo-img {
+        height: 60px;
+    }
+    
+    .logo {
+        padding: 8px 14px 8px 8px;
+        border-radius: 14px;
+    }
+    
+    .footer-logo {
         height: 60px;
     }
     
@@ -1034,14 +1080,24 @@ a {
         height: 350px;
     }
     
-    /* LOGO EN MÓVIL GRANDE - MÁS GRANDE */
-    .logo-img, .footer-logo {
-        height: 55px;  /* AUMENTÉ para móvil */
+    /* LOGO EN MÓVIL GRANDE */
+    .logo-img {
+        height: 55px;
+    }
+    
+    .logo {
+        padding: 6px 12px 6px 6px;
+        border-radius: 12px;
+        min-width: 120px;
+    }
+    
+    .footer-logo {
+        height: 55px;
     }
     
     /* Ajustar navbar para logo más grande */
     .navbar {
-        padding: 15px 0;  /* Más espacio vertical */
+        padding: 15px 0;
     }
     
     .about-stats {
@@ -1109,28 +1165,43 @@ a {
         gap: 40px;
     }
     
-    /* LOGO EN MÓVIL PEQUEÑO - PERO VISIBLE */
-    .logo-img, .footer-logo {
-        height: 50px;  /* AÚN VISIBLE */
+    /* LOGO EN MÓVIL PEQUEÑO */
+    .logo-img {
+        height: 50px;
         min-height: 50px;
     }
     
-    /* Asegurar que el contenedor del logo tenga espacio */
     .logo {
-        min-width: 120px;
+        padding: 5px 10px 5px 5px;
+        border-radius: 10px;
+        min-width: 110px;
+    }
+    
+    .footer-logo {
+        height: 50px;
     }
 }
 
 /* MÓVIL MUY PEQUEÑO (< 400px) */
 @media (max-width: 400px) {
-    /* LOGO EN MÓVIL MUY PEQUEÑO - MÍNIMO LEGIBLE */
-    .logo-img, .footer-logo {
+    /* LOGO EN MÓVIL MUY PEQUEÑO */
+    .logo-img {
         height: 45px;
         min-height: 45px;
     }
     
+    .logo {
+        padding: 4px 8px 4px 4px;
+        border-radius: 8px;
+        min-width: 100px;
+    }
+    
     .navbar {
         padding: 12px 0;
+    }
+    
+    .footer-logo {
+        height: 45px;
     }
 }
 
