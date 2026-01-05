@@ -178,7 +178,7 @@ a {
 }
 
 /* ============================================
-   HEADER CON GRADIENTE SUTIL (VERSIÓN MEJORADA)
+   HEADER CON GRADIENTE SUTIL (VERSIÓN SIMPLIFICADA)
    ============================================ */
 .header {
     position: fixed;
@@ -211,65 +211,39 @@ a {
     padding: 20px 0;
 }
 
-/* CONTENEDOR DEL LOGO CON FONDO GRADIENTE SUTIL */
+/* CONTENEDOR DEL LOGO SIMPLE */
 .logo {
     display: flex;
     align-items: center;
-    position: relative;
-    padding: 12px 20px 12px 12px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.95) 0%, 
-        rgba(248, 250, 252, 0.95) 100%);
-    box-shadow: 0 3px 10px rgba(35, 55, 102, 0.08);
     transition: var(--transition);
-    z-index: 10;
 }
 
-/* Efecto hover elegante en el contenedor del logo */
-.logo:hover {
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 1) 0%, 
-        rgba(248, 250, 252, 1) 100%);
-    box-shadow: 0 5px 15px rgba(35, 55, 102, 0.12);
-    transform: translateY(-1px);
-}
-
-/* LOGO MÁS GRANDE Y CON SOMBRA */
+/* LOGO MÁS GRANDE Y CON SOMBRA SUTIL */
 .logo-img {
-    height: 75px;           /* Aumentado para mejor visibilidad */
+    height: 80px;           /* Aumentado para mejor visibilidad */
     width: auto;
     object-fit: contain;
     transition: var(--transition);
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-/* Efecto hover en la imagen del logo */
+/* Efecto hover sutil en el logo */
 .logo:hover .logo-img {
-    transform: scale(1.04);
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    transform: scale(1.05);
 }
 
-/* Elimina estas clases si no las usas */
-.logo-text {
-    display: flex;
-    flex-direction: column;
+/* Logo en FOOTER - sin cambios de fondo */
+.footer-logo {
+    filter: brightness(0) invert(1); /* Solo si tu logo NO es blanco */
+    height: 70px;                    /* Tamaño consistente */
+    width: auto;
+    transition: var(--transition);
 }
 
-.logo-primary {
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--primary-dark);
-    letter-spacing: -0.01em;
+/* Efecto hover en logo del footer */
+.footer-brand .logo:hover .footer-logo {
+    transform: scale(1.05);
+    opacity: 0.9;
 }
-
-.logo-subtitle {
-    font-size: 0.875rem;
-    color: var(--gray-color);
-    font-weight: 500;
-    letter-spacing: 0.02em;
-}
-
 /* ============================================
    MENÚ DE NAVEGACIÓN
    ============================================ */
@@ -956,7 +930,7 @@ a {
     
     /* Logo en tablet */
     .logo-img {
-        height: 65px;
+        height: 70px;
     }
     
     .logo {
@@ -1001,7 +975,7 @@ a {
     
     /* Logo en tablet pequeña */
     .logo-img {
-        height: 60px;
+        height: 65px;
     }
     
     .logo {
@@ -1082,7 +1056,7 @@ a {
     
     /* LOGO EN MÓVIL GRANDE */
     .logo-img {
-        height: 55px;
+        height: 60px;
     }
     
     .logo {
@@ -1167,8 +1141,8 @@ a {
     
     /* LOGO EN MÓVIL PEQUEÑO */
     .logo-img {
-        height: 50px;
-        min-height: 50px;
+        height: 55px;
+        min-height: 55px;
     }
     
     .logo {
@@ -1186,8 +1160,8 @@ a {
 @media (max-width: 400px) {
     /* LOGO EN MÓVIL MUY PEQUEÑO */
     .logo-img {
-        height: 45px;
-        min-height: 45px;
+        height: 50px;
+        min-height: 50px;
     }
     
     .logo {
