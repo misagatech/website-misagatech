@@ -206,7 +206,8 @@ a {
 }
 
 .logo-img {
-    height: 50px;
+    max-width: 200px;
+    height: auto;
     width: auto;
     object-fit: contain;
     transition: var(--transition);
@@ -754,7 +755,8 @@ a {
 
 .footer-logo {
     filter: brightness(0) invert(1);
-    height: 50px;
+    max-width: 200px;
+    height: auto;
 }
 
 .footer-brand .logo-primary {
