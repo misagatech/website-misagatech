@@ -105,18 +105,41 @@ if (contactForm) {
 // Update copyright year
 document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-// Sticky header on scroll
+// ============================================
+// STICKY HEADER CON CLASE SCROLLED (MEJORADO)
+// ============================================
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-        header.style.padding = '0';
+    const logo = document.querySelector('.logo');
+    
+    // Añadir/quitar clase .scrolled para el efecto de gradiente
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+        
+        // Efecto extra para el logo cuando hay scroll
+        if (logo) {
+            logo.style.transform = 'scale(0.95)';
+            logo.style.transition = 'transform 0.3s ease';
+        }
     } else {
-        header.style.boxShadow = 'var(--shadow-sm)';
+        header.classList.remove('scrolled');
+        
+        // Restaurar tamaño del logo
+        if (logo) {
+            logo.style.transform = 'scale(1)';
+        }
     }
 });
 
 // Add animation classes on page load
 window.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('loaded');
+    
+    // Asegurarse de que el header tenga el estado inicial correcto
+    const header = document.querySelector('.header');
+    if (window.scrollY <= 50) {
+        header.classList.remove('scrolled');
+    } else {
+        header.classList.add('scrolled');
+    }
 });
