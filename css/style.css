@@ -178,7 +178,7 @@ a {
 }
 
 /* ============================================
-   HEADER MINIMALISTA
+   HEADER MINIMALISTA CON LOGO MÁS GRANDE
    ============================================ */
 .header {
     position: fixed;
@@ -205,9 +205,13 @@ a {
     gap: 16px;
 }
 
+/* ============================================
+   LOGO - VERSIÓN CORREGIDA (MÁS GRANDE Y RESPONSIVE)
+   ============================================ */
+
+/* Logo en HEADER - MÁS GRANDE para web */
 .logo-img {
-    max-width: 200px;
-    height: auto;
+    height: 70px;           /* AUMENTÉ de 50px a 70px - MÁS GRANDE */
     width: auto;
     object-fit: contain;
     transition: var(--transition);
@@ -217,6 +221,7 @@ a {
     transform: scale(1.05);
 }
 
+/* Elimina estas clases si no las usas */
 .logo-text {
     display: flex;
     flex-direction: column;
@@ -236,6 +241,9 @@ a {
     letter-spacing: 0.02em;
 }
 
+/* ============================================
+   MENÚ DE NAVEGACIÓN
+   ============================================ */
 .nav-menu {
     display: flex;
     gap: 40px;
@@ -289,7 +297,7 @@ a {
 }
 
 /* ============================================
-   HERO SECTION CON IMAGEN (OPCIÓN B MEJORADA)
+   HERO SECTION CON IMAGEN
    ============================================ */
 .hero {
     padding-top: 160px;
@@ -737,7 +745,7 @@ a {
 }
 
 /* ============================================
-   FOOTER MINIMALISTA
+   FOOTER MINIMALISTA CON LOGO CORREGIDO
    ============================================ */
 .footer {
     background-color: var(--primary-dark);
@@ -753,11 +761,20 @@ a {
     margin-bottom: 80px;
 }
 
+/* Logo en FOOTER - TAMAÑO CONSISTENTE */
 .footer-logo {
-    filter: brightness(0) invert(1);
-    max-width: 200px;
-    height: auto;
+    filter: brightness(0) invert(1); /* Solo si tu logo NO es blanco */
+    height: 70px;                    /* MISMO tamaño que header */
+    width: auto;
 }
+
+/* Si tu logo del footer YA ES BLANCO, comenta la línea filter: */
+/* 
+.footer-logo {
+    height: 70px;
+    width: auto;
+}
+*/
 
 .footer-brand .logo-primary {
     color: var(--white);
@@ -887,8 +904,10 @@ a {
 }
 
 /* ============================================
-   ESTILOS RESPONSIVE
+   ESTILOS RESPONSIVE CORREGIDOS - LOGO MÁS GRANDE
    ============================================ */
+
+/* TABLET (992px - 1200px) */
 @media (max-width: 1200px) {
     h1 {
         font-size: 3rem;
@@ -905,8 +924,14 @@ a {
     .hero-image {
         height: 450px;
     }
+    
+    /* Logo en tablet - un poco más pequeño */
+    .logo-img, .footer-logo {
+        height: 65px;
+    }
 }
 
+/* TABLET PEQUEÑA (768px - 992px) */
 @media (max-width: 992px) {
     h1 {
         font-size: 2.75rem;
@@ -937,6 +962,11 @@ a {
         order: -1; /* Imagen primero en móviles */
     }
     
+    /* Logo en tablet pequeña */
+    .logo-img, .footer-logo {
+        height: 60px;
+    }
+    
     .about-content {
         grid-template-columns: 1fr;
         gap: 60px;
@@ -952,6 +982,7 @@ a {
     }
 }
 
+/* MÓVIL GRANDE (576px - 768px) - LOGO VISIBLE */
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
@@ -1003,6 +1034,16 @@ a {
         height: 350px;
     }
     
+    /* LOGO EN MÓVIL GRANDE - MÁS GRANDE */
+    .logo-img, .footer-logo {
+        height: 55px;  /* AUMENTÉ para móvil */
+    }
+    
+    /* Ajustar navbar para logo más grande */
+    .navbar {
+        padding: 15px 0;  /* Más espacio vertical */
+    }
+    
     .about-stats {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -1023,6 +1064,7 @@ a {
     }
 }
 
+/* MÓVIL PEQUEÑO (400px - 576px) */
 @media (max-width: 576px) {
     .container {
         padding: 0 20px;
@@ -1067,8 +1109,28 @@ a {
         gap: 40px;
     }
     
-    .logo-img {
-        height: 40px;
+    /* LOGO EN MÓVIL PEQUEÑO - PERO VISIBLE */
+    .logo-img, .footer-logo {
+        height: 50px;  /* AÚN VISIBLE */
+        min-height: 50px;
+    }
+    
+    /* Asegurar que el contenedor del logo tenga espacio */
+    .logo {
+        min-width: 120px;
+    }
+}
+
+/* MÓVIL MUY PEQUEÑO (< 400px) */
+@media (max-width: 400px) {
+    /* LOGO EN MÓVIL MUY PEQUEÑO - MÍNIMO LEGIBLE */
+    .logo-img, .footer-logo {
+        height: 45px;
+        min-height: 45px;
+    }
+    
+    .navbar {
+        padding: 12px 0;
     }
 }
 
