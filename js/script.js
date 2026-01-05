@@ -106,28 +106,23 @@ if (contactForm) {
 document.getElementById('currentYear').textContent = new Date().getFullYear();
 
 // ============================================
-// STICKY HEADER CON CLASE SCROLLED (MEJORADO)
+// EFECTO HEADER UNIFICADO AL HACER SCROLL
 // ============================================
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
-    const logo = document.querySelector('.logo');
     
-    // Añadir/quitar clase .scrolled para el efecto de gradiente
+    // Añadir/quitar clase .scrolled para el efecto CSS
     if (window.scrollY > 50) {
         header.classList.add('scrolled');
-        
-        // Efecto extra para el logo cuando hay scroll
-        if (logo) {
-            logo.style.transform = 'scale(0.95)';
-            logo.style.transition = 'transform 0.3s ease';
-        }
     } else {
         header.classList.remove('scrolled');
-        
-        // Restaurar tamaño del logo
-        if (logo) {
-            logo.style.transform = 'scale(1)';
-        }
+    }
+    
+    // Efecto adicional de sombra (opcional)
+    if (window.scrollY > 100) {
+        header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+    } else {
+        header.style.boxShadow = 'var(--shadow-sm)';
     }
 });
 
@@ -135,11 +130,14 @@ window.addEventListener('scroll', () => {
 window.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('loaded');
     
-    // Asegurarse de que el header tenga el estado inicial correcto
+    // Asegurar estado inicial del header
     const header = document.querySelector('.header');
-    if (window.scrollY <= 50) {
-        header.classList.remove('scrolled');
-    } else {
+    if (window.scrollY > 50) {
         header.classList.add('scrolled');
+    }
+    
+    // Asegurar sombra inicial
+    if (window.scrollY > 100) {
+        header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
     }
 });
