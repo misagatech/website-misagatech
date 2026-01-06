@@ -204,6 +204,23 @@
                     
                     <div class="contact-method">
                         <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>WhatsApp</h3>
+                            <a href="https://wa.me/573142802903?text=Hola%20MisaGatech,%20me%20interesan%20sus%20servicios%20digitales" 
+                               class="contact-link" 
+                               target="_blank">
+                                +57 314 280 2903
+                            </a>
+                            <p style="font-size: 0.9rem; color: var(--gray-color); margin-top: 5px;">
+                                Chatea con nosotros directamente
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
                             <i class="fas fa-hashtag"></i>
                         </div>
                         <div class="contact-details">
@@ -225,7 +242,8 @@
                 
                 <div class="contact-form-container">
                     <!-- FORMULARIO CON FORMSPREE -->
-                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mdakrajp" method="POST">
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mdakrajp" method="POST" 
+                          onsubmit="setTimeout(() => { this.reset(); }, 1000);">
                         <!-- Campos ocultos para Formspree -->
                         <input type="hidden" name="_subject" value="Nuevo mensaje de MisaGatech">
                         <input type="hidden" name="_language" value="es">
@@ -299,6 +317,7 @@
                     <div class="contact-info-footer">
                         <p><i class="fas fa-phone-alt"></i> +57 314 280 2903</p>
                         <p><i class="fas fa-envelope"></i> misagatech@gmail.com</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp: +57 314 280 2903</p>
                     </div>
                     <div class="footer-social">
                         <a href="#" class="social-icon">
@@ -310,7 +329,9 @@
                         <a href="#" class="social-icon">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="#" class="social-icon">
+                        <a href="https://wa.me/573142802903?text=Hola%20MisaGatech,%20me%20interesan%20sus%20servicios%20digitales" 
+                           class="social-icon whatsapp-icon" 
+                           target="_blank">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
@@ -326,6 +347,14 @@
             </div>
         </div>
     </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/573142802903?text=Hola%20MisaGatech,%20me%20interesan%20sus%20servicios%20digitales" 
+       class="whatsapp-float" 
+       target="_blank"
+       aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- JavaScript -->
     <script src="js/script.js"></script>
