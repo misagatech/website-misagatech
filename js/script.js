@@ -88,6 +88,18 @@ animateElements.forEach(el => observer.observe(el));
 // Form submission handling con Formspree
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
+    // Limpiar formulario al cargar la página
+    window.addEventListener('load', function() {
+        contactForm.reset();
+    });
+    
+    // También limpiar si el usuario vuelve atrás
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            contactForm.reset();
+        }
+    });
+    
     contactForm.addEventListener('submit', function(e) {
         // NO prevenimos el comportamiento por defecto - Formspree lo manejará
         
@@ -98,11 +110,14 @@ if (contactForm) {
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
         submitBtn.disabled = true;
         
-        // Después de 3 segundos, restaurar el botón (por si hay error)
+        // El formulario se limpiará automáticamente gracias al onsubmit en HTML
+        // Pero también limpiamos por JavaScript por si acaso
+        
+        // Después de 5 segundos, restaurar el botón (fallback)
         setTimeout(() => {
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
-        }, 3000);
+        }, 5000);
         
         // Formspree manejará el envío automáticamente
         // Redirigirá a su página de confirmación
