@@ -85,20 +85,27 @@ const observer = new IntersectionObserver((entries) => {
 const animateElements = document.querySelectorAll('.service-card, .about-stats, .contact-method');
 animateElements.forEach(el => observer.observe(el));
 
-// Form submission handling
+// Form submission handling con Formspree
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+    contactForm.addEventListener('submit', function(e) {
+        // NO prevenimos el comportamiento por defecto - Formspree lo manejará
         
-        // Get form data
-        const formData = new FormData(contactForm);
-        const formObject = Object.fromEntries(formData);
+        // Mostrar estado de carga para mejor experiencia de usuario
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
         
-        // Here you would typically send the data to a server
-        // For now, we'll just show a success message
-        alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
-        contactForm.reset();
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        submitBtn.disabled = true;
+        
+        // Después de 3 segundos, restaurar el botón (por si hay error)
+        setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }, 3000);
+        
+        // Formspree manejará el envío automáticamente
+        // Redirigirá a su página de confirmación
     });
 }
 
