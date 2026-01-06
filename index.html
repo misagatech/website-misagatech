@@ -224,7 +224,12 @@
                 </div>
                 
                 <div class="contact-form-container">
-                    <form class="contact-form" id="contactForm">
+                    <!-- FORMULARIO CON FORMSPREE -->
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mdakrajp" method="POST">
+                        <!-- Campos ocultos para Formspree -->
+                        <input type="hidden" name="_subject" value="Nuevo mensaje de MisaGatech">
+                        <input type="hidden" name="_language" value="es">
+                        
                         <div class="form-group">
                             <label for="name">Nombre Completo *</label>
                             <input type="text" id="name" name="name" required>
@@ -239,10 +244,10 @@
                             <label for="service">Servicio de Interés</label>
                             <select id="service" name="service">
                                 <option value="">Seleccionar servicio</option>
-                                <option value="web">Diseño Web</option>
-                                <option value="uxui">UX/UI Design</option>
-                                <option value="social">Redes Sociales</option>
-                                <option value="branding">Branding</option>
+                                <option value="Diseño Web">Diseño Web</option>
+                                <option value="UX/UI Design">UX/UI Design</option>
+                                <option value="Redes Sociales">Redes Sociales</option>
+                                <option value="Branding">Branding</option>
                             </select>
                         </div>
                         
