@@ -1,1301 +1,871 @@
 /* Reset & Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-    /* ============================================
-       PALETA MISAGATECH MEJORADA - MINIMALISTA
-       ============================================ */
-    
-    /* Colores principales (tu identidad) */
-    --primary-dark: #233766;     /* Azul oscuro - Color principal */
-    --primary-color: #3A4D8C;    /* Azul principal - Más claro para mejor contraste */
-    
-    /* Colores de acento (rojo coral - uso estratégico) */
-    --accent-color: #FF4759;     /* Rojo coral - SOLO para elementos destacados */
-    --accent-light: #FF6B7A;     /* Rojo coral claro */
-    --accent-dark: #E03E4E;      /* Rojo coral oscuro */
-    
-    /* Colores para botones (más elegantes) */
-    --btn-primary: #3A4D8C;      /* Azul para botones primarios */
-    --btn-primary-hover: #233766; /* Azul oscuro al hover */
-    --btn-secondary: transparent; /* Transparente para botones secundarios */
-    --btn-secondary-border: #233766; /* Borde azul oscuro */
-    
-    /* Colores neutrales minimalistas */
-    --dark-color: #1A1A2E;       /* Casi negro azulado para textos */
-    --dark-gray: #2D3047;        /* Gris oscuro */
-    --gray-color: #6B7280;       /* Gris medio */
-    --gray-light: #E5E7EB;       /* Gris claro */
-    --light-color: #F9FAFB;      /* Fondo claro */
-    --white: #FFFFFF;
-    
-    /* Colores de estado */
-    --success-color: #10B981;    /* Verde éxito */
-    --error-color: #EF4444;      /* Rojo error */
-    
-    /* Tipografía minimalista moderna */
-    --font-primary: 'Inter', sans-serif;
-    --font-secondary: 'Manrope', sans-serif;
-    
-    /* Sombras sutiles y elegantes */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    
-    /* Transiciones suaves */
-    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    
-    /* Bordes redondeados consistentes */
-    --border-radius: 12px;
-    --border-radius-sm: 8px;
-    --border-radius-full: 50%;
+  --primary-dark: #233766;
+  --primary-color: #3A4D8C;
+
+  --accent-color: #FF4759;
+  --accent-light: #FF6B7A;
+  --accent-dark: #E03E4E;
+
+  --btn-primary: #3A4D8C;
+  --btn-primary-hover: #233766;
+  --btn-secondary: transparent;
+  --btn-secondary-border: #233766;
+
+  --dark-color: #1A1A2E;
+  --dark-gray: #2D3047;
+  --gray-color: #6B7280;
+  --gray-light: #E5E7EB;
+  --light-color: #F9FAFB;
+  --white: #FFFFFF;
+
+  --success-color: #10B981;
+  --error-color: #EF4444;
+
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'Manrope', sans-serif;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --border-radius-full: 50%;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-    font-family: var(--font-primary);
-    color: var(--dark-color);
-    background-color: var(--white);
-    line-height: 1.6;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-primary);
+  color: var(--dark-color);
+  background-color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-    width: 100%;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 24px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-section {
-    padding: 100px 0;
+section { padding: 100px 0; }
+
+h1,h2,h3,h4,h5,h6{
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
 }
 
-/* ============================================
-   TIPOGRAFÍA MINIMALISTA
-   ============================================ */
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-secondary);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    color: var(--dark-color);
-}
-
-h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-}
-
-h2 {
-    font-size: 2.5rem;
-    letter-spacing: -0.01em;
-}
-
-h3 {
-    font-size: 1.75rem;
-}
+h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: 2.5rem; letter-spacing: -0.01em; }
+h3 { font-size: 1.75rem; }
 
 p {
-    margin-bottom: 1.5rem;
-    color: var(--gray-color);
-    font-size: 1.125rem;
-    line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: var(--gray-color);
+  font-size: 1.125rem;
+  line-height: 1.7;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transition);
-}
+a { text-decoration: none; color: inherit; transition: var(--transition); }
 
-/* ============================================
-   BOTONES MEJORADOS (MÁS ELEGANTES)
-   ============================================ */
+/* Buttons */
 .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 32px;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: var(--transition);
-    border: none;
-    gap: 10px;
-    font-family: var(--font-primary);
-    letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  gap: 10px;
+  font-family: var(--font-primary);
+  letter-spacing: 0.01em;
 }
 
-/* Botón primario - AZUL elegante */
 .btn-primary {
-    background-color: var(--btn-primary);
-    color: var(--white);
-    box-shadow: var(--shadow-md);
-    border: 2px solid var(--btn-primary);
+  background-color: var(--btn-primary);
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--btn-primary);
 }
 
 .btn-primary:hover {
-    background-color: var(--btn-primary-hover);
-    border-color: var(--btn-primary-hover);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+  background-color: var(--btn-primary-hover);
+  border-color: var(--btn-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
-/* Botón secundario - Contorno azul oscuro */
 .btn-secondary {
-    background-color: var(--btn-secondary);
-    color: var(--btn-secondary-border);
-    border: 2px solid var(--btn-secondary-border);
+  background-color: var(--btn-secondary);
+  color: var(--btn-secondary-border);
+  border: 2px solid var(--btn-secondary-border);
 }
 
 .btn-secondary:hover {
-    background-color: var(--btn-secondary-border);
-    color: var(--white);
-    transform: translateY(-2px);
+  background-color: var(--btn-secondary-border);
+  color: var(--white);
+  transform: translateY(-2px);
 }
 
-/* Variantes de botones */
-.btn-large {
-    padding: 18px 40px;
-    font-size: 1.125rem;
-}
+.btn-large { padding: 18px 40px; font-size: 1.125rem; }
+.btn-block { width: 100%; }
 
-.btn-block {
-    width: 100%;
-}
-
-/* ============================================
-   HEADER CON GRADIENTE SUTIL (VERSIÓN SIMPLIFICADA)
-   ============================================ */
+/* Header */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.98) 0%, 
-        rgba(248, 250, 252, 0.98) 100%);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    border-bottom: 1px solid rgba(229, 231, 235, 0.8);
-    box-shadow: 0 4px 6px -1px rgba(35, 55, 102, 0.05);
-    transition: var(--transition);
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.98) 100%);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(229,231,235,0.8);
+  box-shadow: 0 4px 6px -1px rgba(35,55,102,0.05);
+  transition: var(--transition);
 }
 
-/* Efecto cuando haces scroll */
 .header.scrolled {
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.99) 0%, 
-        rgba(248, 250, 252, 0.99) 100%);
-    box-shadow: 0 6px 10px -1px rgba(35, 55, 102, 0.08);
-    border-bottom-color: rgba(229, 231, 235, 0.9);
+  background: linear-gradient(135deg, rgba(255,255,255,0.99) 0%, rgba(248,250,252,0.99) 100%);
+  box-shadow: 0 6px 10px -1px rgba(35,55,102,0.08);
+  border-bottom-color: rgba(229,231,235,0.9);
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
 }
 
-/* CONTENEDOR DEL LOGO SIMPLE */
-.logo {
-    display: flex;
-    align-items: center;
-    transition: var(--transition);
-}
+.logo { display: flex; align-items: center; transition: var(--transition); }
 
-/* LOGO MÁS GRANDE Y CON SOMBRA SUTIL */
 .logo-img {
-    height: 80px;           /* Aumentado para mejor visibilidad */
-    width: auto;
-    object-fit: contain;
-    transition: var(--transition);
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  transition: var(--transition);
 }
 
-/* Efecto hover sutil en el logo */
-.logo:hover .logo-img {
-    transform: scale(1.05);
-}
+.logo:hover .logo-img { transform: scale(1.05); }
 
-/* Logo en FOOTER - sin cambios de fondo */
 .footer-logo {
-    filter: brightness(0) invert(1); /* Solo si tu logo NO es blanco */
-    height: 70px;                    /* Tamaño consistente */
-    width: auto;
-    transition: var(--transition);
+  filter: brightness(0) invert(1);
+  height: 70px;
+  width: auto;
+  transition: var(--transition);
 }
 
-/* Efecto hover en logo del footer */
 .footer-brand .logo:hover .footer-logo {
-    transform: scale(1.05);
-    opacity: 0.9;
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 
-/* ============================================
-   MENÚ DE NAVEGACIÓN
-   ============================================ */
-.nav-menu {
-    display: flex;
-    gap: 40px;
-}
+/* Nav */
+.nav-menu { display: flex; gap: 40px; }
 
 .nav-link {
-    font-weight: 500;
-    color: var(--dark-gray);
-    position: relative;
-    padding: 8px 0;
-    font-size: 1rem;
-    letter-spacing: 0.01em;
+  font-weight: 500;
+  color: var(--dark-gray);
+  position: relative;
+  padding: 8px 0;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
 }
 
-/* Enlaces activos en ROJO CORAL (acento estratégico) */
-.nav-link:hover, .nav-link.active {
-    color: var(--accent-color);
+.nav-link:hover, .nav-link.active { color: var(--accent-color); }
+
+.nav-link.active::after{
+  content:'';
+  position:absolute;
+  bottom:0; left:0;
+  width:100%;
+  height:2px;
+  background-color: var(--accent-color);
+  border-radius: 1px;
 }
 
-.nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--accent-color);
-    border-radius: 1px;
+.nav-actions { display:flex; align-items:center; gap:24px; }
+
+.menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  font-size:1.5rem;
+  color: var(--dark-color);
+  cursor:pointer;
+  padding:8px;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition);
 }
 
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-}
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--dark-color);
-    cursor: pointer;
-    padding: 8px;
-    border-radius: var(--border-radius-sm);
-    transition: var(--transition);
-}
-
-.menu-toggle:hover {
-    background-color: var(--gray-light);
-}
+.menu-toggle:hover{ background-color: var(--gray-light); }
 
 /* ============================================
-   HERO SECTION CON IMAGEN
+   HERO (CORREGIDO) Imagen full + texto encima
    ============================================ */
-.hero {
-    padding-top: 160px;
-    padding-bottom: 100px;
-    overflow: hidden;
-    position: relative;
-    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+.hero{
+  padding-top: 160px;
+  padding-bottom: 100px;
+  position: relative;
+  overflow: hidden;
+
+  background-image: url("../images/heroimagen.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 40%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(35, 55, 102, 0.03) 0%, rgba(255, 71, 89, 0.02) 100%);
-    border-radius: 0 0 0 200px;
-    z-index: 0;
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.62) 0%,
+    rgba(0,0,0,0.38) 55%,
+    rgba(0,0,0,0.18) 100%
+  );
+  z-index:0;
 }
 
-.hero .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    position: relative;
-    z-index: 1;
+.hero .container{
+  position: relative;
+  z-index: 1;
+  display: block;
+  min-height: 520px;
+  padding-top: 20px;
 }
 
-.hero-title {
-    font-size: 3.25rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
+.hero-content{ max-width: 720px; }
+
+.hero-title{
+  font-size: 3.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  color: #fff;
 }
 
-/* Texto destacado en ROJO CORAL */
-.highlight {
-    color: var(--accent-color);
-    position: relative;
-    display: inline-block;
+.highlight{
+  color: var(--accent-color);
+  position: relative;
+  display: inline-block;
 }
 
-.highlight::after {
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    background-color: rgba(255, 71, 89, 0.15);
-    z-index: -1;
-    border-radius: 4px;
+.highlight::after{
+  content:'';
+  position:absolute;
+  bottom:5px; left:0;
+  width:100%;
+  height:8px;
+  background-color: rgba(255,71,89,0.22);
+  z-index:-1;
+  border-radius:4px;
 }
 
-.hero-subtitle {
-    font-size: 1.25rem;
-    margin-bottom: 2.5rem;
-    color: var(--dark-gray);
-    max-width: 90%;
-    line-height: 1.7;
+.hero-subtitle{
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  color: rgba(255,255,255,0.92);
+  max-width: 90%;
+  line-height: 1.7;
 }
 
-.hero-actions {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+.hero-actions{ display:flex; gap:20px; flex-wrap:wrap; }
+
+/* Ya no usamos la imagen como columna */
+.hero-image{ display:none; }
+.hero-img{ display:none; }
+
+/* Section Header */
+.section-header { text-align:center; margin-bottom:80px; }
+
+.section-title{
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
 }
 
-/* Contenedor de la imagen del hero */
-.hero-image {
-    position: relative;
-    height: 500px;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-xl);
-    border: 1px solid rgba(229, 231, 235, 0.5);
+.section-title::after{
+  content:'';
+  position:absolute;
+  bottom:-15px;
+  left:50%;
+  transform: translateX(-50%);
+  width:60px;
+  height:4px;
+  background-color: var(--accent-color);
+  border-radius:2px;
 }
 
-/* Imagen del hero */
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: var(--transition);
+.section-subtitle{
+  font-size: 1.25rem;
+  color: var(--gray-color);
+  max-width: 600px;
+  margin: 2rem auto 0;
+  line-height: 1.7;
 }
 
-.hero-img:hover {
-    transform: scale(1.02);
+/* Services */
+.services-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap:32px;
 }
 
-/* Si no tienes imagen, muestra un placeholder elegante */
-.hero-image:not(:has(.hero-img)) {
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.service-card{
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 48px 32px;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  text-align: center;
+  border: 1px solid var(--gray-light);
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-image:not(:has(.hero-img))::before {
-    content: 'MisaGatech';
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 2rem;
-    font-weight: 700;
-    font-family: var(--font-secondary);
+.service-card::before{
+  content:'';
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:4px;
+  background: linear-gradient(90deg, var(--primary-dark), var(--accent-color));
+  opacity:0;
+  transition: var(--transition);
 }
 
-/* ============================================
-   SECTION HEADER MINIMALISTA
-   ============================================ */
-.section-header {
-    text-align: center;
-    margin-bottom: 80px;
+.service-card:hover{
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-xl);
 }
 
-.section-title {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 1.5rem;
+.service-card:hover::before{ opacity:1; }
+
+.service-icon{
+  width:80px;
+  height:80px;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+  border-radius: var(--border-radius-full);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin: 0 auto 32px;
+  color: var(--white);
+  font-size:1.75rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
 }
 
-/* Línea decorativa en ROJO CORAL */
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background-color: var(--accent-color);
-    border-radius: 2px;
+.service-card:hover .service-icon{ transform: scale(1.1); }
+
+.service-title{ font-size:1.5rem; margin-bottom:20px; color: var(--dark-color); }
+.service-description{ margin-bottom:24px; color: var(--gray-color); font-size:1.0625rem; line-height:1.7; }
+
+.service-features{ list-style:none; text-align:left; margin-top:24px; }
+.service-features li{
+  padding:10px 0;
+  color: var(--dark-gray);
+  position: relative;
+  padding-left: 28px;
+  font-size: 0.95rem;
 }
 
-.section-subtitle {
-    font-size: 1.25rem;
-    color: var(--gray-color);
-    max-width: 600px;
-    margin: 2rem auto 0;
-    line-height: 1.7;
+.service-features li::before{
+  content:'✓';
+  position:absolute;
+  left:0;
+  color: var(--accent-color);
+  font-weight:bold;
+  font-size:1.1rem;
 }
 
-/* ============================================
-   SERVICES SECTION MINIMALISTA
-   ============================================ */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
+/* About */
+.about{ background-color: var(--light-color); position:relative; }
+.about::before{
+  content:'';
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: linear-gradient(135deg, rgba(35,55,102,0.02) 0%, rgba(255,71,89,0.02) 100%);
+  z-index:-1;
 }
 
-.service-card {
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    padding: 48px 32px;
-    box-shadow: var(--shadow-md);
-    transition: var(--transition);
-    text-align: center;
-    border: 1px solid var(--gray-light);
-    position: relative;
-    overflow: hidden;
+.about-content{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:80px;
+  align-items:center;
 }
 
-/* Línea superior en degradado azul-rojo */
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-dark), var(--accent-color));
-    opacity: 0;
-    transition: var(--transition);
+.about-features{ margin-top:40px; }
+
+.feature{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:20px;
+  color: var(--dark-color);
+  font-weight:500;
+  font-size:1.0625rem;
 }
 
-.service-card:hover {
-    transform: translateY(-12px);
-    box-shadow: var(--shadow-xl);
+.feature i{
+  color: var(--accent-color);
+  font-size:1.25rem;
+  flex-shrink:0;
 }
 
-.service-card:hover::before {
-    opacity: 1;
+.about-stats{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:32px;
+  text-align:center;
 }
 
-.service-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
-    border-radius: var(--border-radius-full);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 32px;
-    color: var(--white);
-    font-size: 1.75rem;
-    box-shadow: var(--shadow-md);
-    transition: var(--transition);
+.stat{
+  background-color: var(--white);
+  padding:40px 24px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  border: 1px solid var(--gray-light);
 }
 
-.service-card:hover .service-icon {
-    transform: scale(1.1);
+.stat:hover{
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--accent-color);
 }
 
-.service-title {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: var(--dark-color);
+.stat-number{
+  display:block;
+  font-size:3.5rem;
+  font-weight:800;
+  color: var(--accent-color);
+  line-height:1;
+  margin-bottom:12px;
+  font-family: var(--font-secondary);
 }
 
-.service-description {
-    margin-bottom: 24px;
-    color: var(--gray-color);
-    font-size: 1.0625rem;
-    line-height: 1.7;
+.stat-label{
+  font-size:1rem;
+  color: var(--gray-color);
+  font-weight:500;
+  letter-spacing:0.02em;
 }
 
-.service-features {
-    list-style: none;
-    text-align: left;
-    margin-top: 24px;
+/* Contact */
+.contact-content{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:80px;
 }
 
-.service-features li {
-    padding: 10px 0;
-    color: var(--dark-gray);
-    position: relative;
-    padding-left: 28px;
-    font-size: 0.95rem;
+.contact-method{
+  display:flex;
+  gap:24px;
+  margin-bottom:48px;
+  align-items:flex-start;
 }
 
-/* Check en ROJO CORAL */
-.service-features li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--accent-color);
-    font-weight: bold;
-    font-size: 1.1rem;
+.contact-icon{
+  width:64px;
+  height:64px;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+  border-radius: var(--border-radius-full);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: var(--white);
+  font-size:1.5rem;
+  flex-shrink:0;
+  box-shadow: var(--shadow-md);
 }
 
-/* ============================================
-   ABOUT SECTION MINIMALISTA
-   ============================================ */
-.about {
-    background-color: var(--light-color);
-    position: relative;
+.contact-details h3{
+  margin-bottom:12px;
+  font-size:1.5rem;
+  color: var(--dark-color);
 }
 
-.about::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(35, 55, 102, 0.02) 0%, rgba(255, 71, 89, 0.02) 100%);
-    z-index: -1;
+.contact-link{
+  color: var(--accent-color);
+  font-weight:500;
+  font-size:1.125rem;
 }
 
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
+.contact-link:hover{
+  color: var(--accent-dark);
+  text-decoration: underline;
 }
 
-.about-features {
-    margin-top: 40px;
+.social-links{ display:flex; flex-direction:column; gap:12px; }
+
+.social-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color: var(--gray-color);
+  font-size:1.0625rem;
+  transition: var(--transition);
 }
 
-.feature {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
-    color: var(--dark-color);
-    font-weight: 500;
-    font-size: 1.0625rem;
+.social-link:hover{
+  color: var(--accent-color);
+  transform: translateX(4px);
 }
 
-/* Icono de check en ROJO CORAL */
-.feature i {
-    color: var(--accent-color);
-    font-size: 1.25rem;
-    flex-shrink: 0;
+.social-link i{ width:20px; text-align:center; }
+
+.contact-form-container{
+  background-color: var(--white);
+  padding:48px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-light);
 }
 
-.about-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    text-align: center;
-}
+.form-group{ margin-bottom:28px; }
 
-.stat {
-    background-color: var(--white);
-    padding: 40px 24px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-md);
-    transition: var(--transition);
-    border: 1px solid var(--gray-light);
-}
-
-.stat:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--accent-color);
-}
-
-/* Número en ROJO CORAL */
-.stat-number {
-    display: block;
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: var(--accent-color);
-    line-height: 1;
-    margin-bottom: 12px;
-    font-family: var(--font-secondary);
-}
-
-.stat-label {
-    font-size: 1rem;
-    color: var(--gray-color);
-    font-weight: 500;
-    letter-spacing: 0.02em;
-}
-
-/* ============================================
-   CONTACT SECTION MINIMALISTA
-   ============================================ */
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-}
-
-.contact-method {
-    display: flex;
-    gap: 24px;
-    margin-bottom: 48px;
-    align-items: flex-start;
-}
-
-.contact-icon {
-    width: 64px;
-    height: 64px;
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
-    border-radius: var(--border-radius-full);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-size: 1.5rem;
-    flex-shrink: 0;
-    box-shadow: var(--shadow-md);
-}
-
-.contact-details h3 {
-    margin-bottom: 12px;
-    font-size: 1.5rem;
-    color: var(--dark-color);
-}
-
-/* Enlaces de contacto en ROJO CORAL */
-.contact-link {
-    color: var(--accent-color);
-    font-weight: 500;
-    font-size: 1.125rem;
-}
-
-.contact-link:hover {
-    color: var(--accent-dark);
-    text-decoration: underline;
-}
-
-.social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.social-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--gray-color);
-    font-size: 1.0625rem;
-    transition: var(--transition);
-}
-
-/* Hover en ROJO CORAL */
-.social-link:hover {
-    color: var(--accent-color);
-    transform: translateX(4px);
-}
-
-.social-link i {
-    width: 20px;
-    text-align: center;
-}
-
-.contact-form-container {
-    background-color: var(--white);
-    padding: 48px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--gray-light);
-}
-
-.form-group {
-    margin-bottom: 28px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: var(--dark-color);
-    font-size: 1.0625rem;
+.form-group label{
+  display:block;
+  margin-bottom:10px;
+  font-weight:600;
+  color: var(--dark-color);
+  font-size:1.0625rem;
 }
 
 .form-group input,
 .form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 16px;
-    border: 1px solid var(--gray-light);
-    border-radius: var(--border-radius-sm);
-    font-family: var(--font-primary);
-    font-size: 1rem;
-    transition: var(--transition);
-    background-color: var(--light-color);
+.form-group textarea{
+  width:100%;
+  padding:16px;
+  border:1px solid var(--gray-light);
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-primary);
+  font-size:1rem;
+  transition: var(--transition);
+  background-color: var(--light-color);
 }
 
-/* Focus en ROJO CORAL */
 .form-group input:focus,
 .form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(255, 71, 89, 0.1);
+.form-group textarea:focus{
+  outline:none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(255,71,89,0.1);
+  background-color: var(--white);
+}
+
+/* Footer */
+.footer{
+  background-color: var(--primary-dark);
+  color: var(--white);
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+
+.footer-content{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap:48px;
+  margin-bottom:80px;
+}
+
+.footer-description{
+  color: rgba(255,255,255,0.7);
+  margin-top:20px;
+  font-size:1.0625rem;
+  line-height:1.7;
+}
+
+.footer-title{
+  color: var(--white);
+  font-size:1.25rem;
+  margin-bottom:28px;
+  position:relative;
+  padding-bottom:12px;
+}
+
+.footer-title::after{
+  content:'';
+  position:absolute;
+  bottom:0; left:0;
+  width:40px;
+  height:3px;
+  background-color: var(--accent-color);
+  border-radius:2px;
+}
+
+.footer-links{ display:flex; flex-direction:column; gap:16px; }
+.footer-link{ color: rgba(255,255,255,0.7); transition: var(--transition); }
+.footer-link:hover{ color: var(--accent-color); padding-left:8px; }
+
+.footer-services{ display:flex; flex-direction:column; gap:16px; }
+.footer-service{ color: rgba(255,255,255,0.7); }
+
+.contact-info-footer p{
+  color: rgba(255,255,255,0.7);
+  margin-bottom:16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:1.0625rem;
+}
+
+.footer-social{ display:flex; gap:16px; margin-top:24px; }
+
+.social-icon{
+  width:44px;
+  height:44px;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: var(--border-radius-full);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: var(--white);
+  font-size:1.25rem;
+  transition: var(--transition);
+}
+
+.whatsapp-icon{ background-color:#25d366 !important; }
+.whatsapp-icon:hover{ background-color:#128C7E !important; }
+
+.social-icon:not(.whatsapp-icon):hover{
+  background-color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.footer-bottom{
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top:40px;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:24px;
+}
+
+.copyright{ color: rgba(255,255,255,0.6); font-size:1rem; }
+
+.footer-legal{ display:flex; gap:24px; }
+.legal-link{ color: rgba(255,255,255,0.6); transition: var(--transition); }
+.legal-link:hover{ color: var(--accent-color); }
+
+/* WhatsApp Float */
+.whatsapp-float{
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:40px;
+  background-color:#25d366;
+  color:white;
+  border-radius:50%;
+  text-align:center;
+  font-size:30px;
+  box-shadow: 0 4px 12px rgba(37,211,102,0.4);
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition: all 0.3s ease;
+  animation: pulse-whatsapp 2s infinite;
+}
+
+.whatsapp-float:hover{
+  background-color:#128C7E;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(37,211,102,0.6);
+  color:white;
+}
+
+.whatsapp-float i{ margin-top:2px; }
+
+@keyframes pulse-whatsapp{
+  0%{ box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
+  70%{ box-shadow: 0 0 0 15px rgba(37,211,102,0); }
+  100%{ box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+
+/* Responsive */
+@media (max-width: 1200px){
+  h1{ font-size:3rem; }
+  h2{ font-size:2.25rem; }
+
+  .logo-img{ height:70px; }
+  .footer-logo{ height:65px; }
+
+  .whatsapp-float{
+    width:55px;
+    height:55px;
+    bottom:30px;
+    right:30px;
+    font-size:28px;
+  }
+}
+
+@media (max-width: 992px){
+  h1{ font-size:2.75rem; }
+  h2{ font-size:2rem; }
+
+  .hero{ padding-top: 140px; padding-bottom: 80px; }
+  .hero .container{ min-height: 520px; }
+
+  .hero-actions{
+    justify-content: center;
+  }
+
+  .logo-img{ height:65px; }
+  .footer-logo{ height:60px; }
+
+  .about-content{ grid-template-columns:1fr; gap:60px; }
+  .contact-content{ grid-template-columns:1fr; gap:60px; }
+  .services-grid{ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+}
+
+@media (max-width: 768px){
+  .nav-menu{
+    position:fixed;
+    top:90px;
+    left:0;
+    width:100%;
     background-color: var(--white);
-}
-
-/* ============================================
-   FOOTER MINIMALISTA CON LOGO CORREGIDO
-   ============================================ */
-.footer {
-    background-color: var(--primary-dark);
-    color: var(--white);
-    padding-top: 100px;
-    padding-bottom: 60px;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 48px;
-    margin-bottom: 80px;
-}
-
-/* Logo en FOOTER - TAMAÑO CONSISTENTE */
-.footer-logo {
-    filter: brightness(0) invert(1); /* Solo si tu logo NO es blanco */
-    height: 70px;                    /* MISMO tamaño que header */
-    width: auto;
-}
-
-/* Si tu logo del footer YA ES BLANCO, comenta la línea filter: */
-/* 
-.footer-logo {
-    height: 70px;
-    width: auto;
-}
-*/
-
-.footer-brand .logo-primary {
-    color: var(--white);
-}
-
-.footer-brand .logo-subtitle {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.footer-description {
-    color: rgba(255, 255, 255, 0.7);
-    margin-top: 20px;
-    font-size: 1.0625rem;
-    line-height: 1.7;
-}
-
-.footer-title {
-    color: var(--white);
-    font-size: 1.25rem;
-    margin-bottom: 28px;
-    position: relative;
-    padding-bottom: 12px;
-}
-
-/* Línea en ROJO CORAL */
-.footer-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 3px;
-    background-color: var(--accent-color);
-    border-radius: 2px;
-}
-
-.footer-links {
-    display: flex;
     flex-direction: column;
-    gap: 16px;
-}
-
-.footer-link {
-    color: rgba(255, 255, 255, 0.7);
+    padding:32px;
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-100%);
+    opacity:0;
+    visibility:hidden;
     transition: var(--transition);
-}
+    z-index:999;
+    gap:24px;
+    border-top: 1px solid var(--gray-light);
+  }
 
-/* Hover en ROJO CORAL */
-.footer-link:hover {
-    color: var(--accent-color);
-    padding-left: 8px;
-}
+  .nav-menu.active{
+    transform: translateY(0);
+    opacity:1;
+    visibility: visible;
+  }
 
-.footer-services {
-    display: flex;
+  .menu-toggle{ display:block; }
+  .nav-actions .btn-primary{ display:none; }
+
+  .hero-title{ font-size:2.35rem; }
+  .hero-actions{
     flex-direction: column;
-    gap: 16px;
-}
-
-.footer-service {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.contact-info-footer p {
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 16px;
-    display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 1.0625rem;
+  }
+  .hero-actions .btn{
+    width:100%;
+    max-width: 300px;
+  }
+
+  .logo-img{ height:60px; }
+  .footer-logo{ height:55px; }
+
+  .navbar{ padding: 15px 0; }
+
+  .about-stats{ grid-template-columns:1fr; gap:24px; }
+
+  .footer-bottom{
+    flex-direction: column;
+    text-align:center;
+    gap:20px;
+  }
+
+  .footer-legal{ justify-content:center; }
+  section{ padding:80px 0; }
+
+  .whatsapp-float{
+    width:50px;
+    height:50px;
+    bottom:20px;
+    right:20px;
+    font-size:25px;
+  }
 }
 
-.footer-social {
-    display: flex;
-    gap: 16px;
-    margin-top: 24px;
+@media (max-width: 576px){
+  .container{ padding:0 20px; }
+  h1{ font-size:2.25rem; }
+  h2{ font-size:1.75rem; }
+  h3{ font-size:1.5rem; }
+
+  .hero{ padding-top: 140px; padding-bottom: 70px; }
+  .hero .container{ min-height: 520px; }
+
+  .service-card, .contact-form-container{ padding:32px 24px; }
+  .btn-large{ padding:16px 32px; font-size:1rem; }
+
+  .footer-content{ grid-template-columns:1fr; gap:40px; }
+
+  .logo-img{ height:55px; min-height:55px; }
+  .footer-logo{ height:50px; }
+
+  .whatsapp-float{
+    width:45px;
+    height:45px;
+    bottom:15px;
+    right:15px;
+    font-size:22px;
+  }
 }
 
-.social-icon {
-    width: 44px;
-    height: 44px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius-full);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-size: 1.25rem;
-    transition: var(--transition);
+@media (max-width: 400px){
+  .logo-img{ height:50px; min-height:50px; }
+  .navbar{ padding:12px 0; }
+  .footer-logo{ height:45px; }
+
+  .whatsapp-float{
+    width:40px;
+    height:40px;
+    bottom:10px;
+    right:10px;
+    font-size:20px;
+  }
 }
 
-/* Estilo especial para WhatsApp en el footer */
-.whatsapp-icon {
-    background-color: #25d366 !important;
+/* Animations */
+@keyframes fadeInUp{
+  from{ opacity:0; transform: translateY(30px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+.animate-in{ animation: fadeInUp 0.6s ease-out forwards; }
+
+/* Form select arrow */
+select{
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236B7280' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 16px center;
+  background-size:16px;
+  padding-right:48px;
 }
 
-.whatsapp-icon:hover {
-    background-color: #128C7E !important;
-}
+textarea{ resize: vertical; min-height:120px; }
 
-/* Hover en ROJO CORAL para otros iconos */
-.social-icon:not(.whatsapp-icon):hover {
-    background-color: var(--accent-color);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 24px;
-}
-
-.copyright {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 1rem;
-}
-
-.footer-legal {
-    display: flex;
-    gap: 24px;
-}
-
-.legal-link {
-    color: rgba(255, 255, 255, 0.6);
-    transition: var(--transition);
-}
-
-/* Hover en ROJO CORAL */
-.legal-link:hover {
-    color: var(--accent-color);
-}
-
-/* ============================================
-   BOTÓN FLOTANTE DE WHATSAPP
-   ============================================ */
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: #25d366;
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    animation: pulse-whatsapp 2s infinite;
-}
-
-.whatsapp-float:hover {
-    background-color: #128C7E;
-    transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
-    color: white;
-}
-
-.whatsapp-float i {
-    margin-top: 2px;
-}
-
-/* Animación de pulso */
-@keyframes pulse-whatsapp {
-    0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-    }
-}
-
-/* ============================================
-   ESTILOS RESPONSIVE CORREGIDOS - LOGO MÁS GRANDE
-   ============================================ */
-
-/* TABLET (992px - 1200px) */
-@media (max-width: 1200px) {
-    h1 {
-        font-size: 3rem;
-    }
-    
-    h2 {
-        font-size: 2.25rem;
-    }
-    
-    .hero .container {
-        gap: 60px;
-    }
-    
-    .hero-image {
-        height: 450px;
-    }
-    
-    /* Logo en tablet */
-    .logo-img {
-        height: 70px;
-    }
-    
-    .footer-logo {
-        height: 65px;
-    }
-    
-    /* WhatsApp flotante responsive */
-    .whatsapp-float {
-        width: 55px;
-        height: 55px;
-        bottom: 30px;
-        right: 30px;
-        font-size: 28px;
-    }
-}
-
-/* TABLET PEQUEÑA (768px - 992px) */
-@media (max-width: 992px) {
-    h1 {
-        font-size: 2.75rem;
-    }
-    
-    h2 {
-        font-size: 2rem;
-    }
-    
-    .hero .container {
-        grid-template-columns: 1fr;
-        gap: 60px;
-        text-align: center;
-    }
-    
-    .hero-subtitle {
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .hero-actions {
-        justify-content: center;
-    }
-    
-    .hero-image {
-        height: 400px;
-        order: -1; /* Imagen primero en móviles */
-    }
-    
-    /* Logo en tablet pequeña */
-    .logo-img {
-        height: 65px;
-    }
-    
-    .footer-logo {
-        height: 60px;
-    }
-    
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 60px;
-    }
-    
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 60px;
-    }
-    
-    .services-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-}
-
-/* MÓVIL GRANDE (576px - 768px) - LOGO VISIBLE */
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        top: 90px;
-        left: 0;
-        width: 100%;
-        background-color: var(--white);
-        flex-direction: column;
-        padding: 32px;
-        box-shadow: var(--shadow-xl);
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: var(--transition);
-        z-index: 999;
-        gap: 24px;
-        border-top: 1px solid var(--gray-light);
-    }
-    
-    .nav-menu.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .menu-toggle {
-        display: block;
-    }
-    
-    .nav-actions .btn-primary {
-        display: none;
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .hero-actions .btn {
-        width: 100%;
-        max-width: 300px;
-    }
-    
-    .hero-image {
-        height: 350px;
-    }
-    
-    /* LOGO EN MÓVIL GRANDE */
-    .logo-img {
-        height: 60px;
-    }
-    
-    .footer-logo {
-        height: 55px;
-    }
-    
-    /* Ajustar navbar para logo más grande */
-    .navbar {
-        padding: 15px 0;
-    }
-    
-    .about-stats {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-    
-    .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    
-    .footer-legal {
-        justify-content: center;
-    }
-    
-    section {
-        padding: 80px 0;
-    }
-    
-    /* WhatsApp flotante mobile */
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        right: 20px;
-        font-size: 25px;
-    }
-}
-
-/* MÓVIL PEQUEÑO (400px - 576px) */
-@media (max-width: 576px) {
-    .container {
-        padding: 0 20px;
-    }
-    
-    h1 {
-        font-size: 2.25rem;
-    }
-    
-    h2 {
-        font-size: 1.75rem;
-    }
-    
-    h3 {
-        font-size: 1.5rem;
-    }
-    
-    .hero {
-        padding-top: 140px;
-        padding-bottom: 80px;
-    }
-    
-    .hero-image {
-        height: 300px;
-    }
-    
-    .service-card, .contact-form-container {
-        padding: 32px 24px;
-    }
-    
-    .contact-form-container {
-        padding: 32px 24px;
-    }
-    
-    .btn-large {
-        padding: 16px 32px;
-        font-size: 1rem;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    /* LOGO EN MÓVIL PEQUEÑO */
-    .logo-img {
-        height: 55px;
-        min-height: 55px;
-    }
-    
-    .footer-logo {
-        height: 50px;
-    }
-    
-    /* WhatsApp flotante mobile pequeño */
-    .whatsapp-float {
-        width: 45px;
-        height: 45px;
-        bottom: 15px;
-        right: 15px;
-        font-size: 22px;
-    }
-}
-
-/* MÓVIL MUY PEQUEÑO (< 400px) */
-@media (max-width: 400px) {
-    /* LOGO EN MÓVIL MUY PEQUEÑO */
-    .logo-img {
-        height: 50px;
-        min-height: 50px;
-    }
-    
-    .navbar {
-        padding: 12px 0;
-    }
-    
-    .footer-logo {
-        height: 45px;
-    }
-    
-    /* WhatsApp flotante mobile muy pequeño */
-    .whatsapp-float {
-        width: 40px;
-        height: 40px;
-        bottom: 10px;
-        right: 10px;
-        font-size: 20px;
-    }
-}
-
-/* ============================================
-   ANIMACIONES SUTILES
-   ============================================ */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate-in {
-    animation: fadeInUp 0.6s ease-out forwards;
-}
-
-/* ============================================
-   ESTILOS PARA FORMULARIOS MEJORADOS
-   ============================================ */
-select {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236B7280' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-    background-size: 16px;
-    padding-right: 48px;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-/* ============================================
-   ESTILOS PARA SCROLLBAR ELEGANTE
-   ============================================ */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--light-color);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-dark);
-}
+/* Scrollbar */
+::-webkit-scrollbar{ width:10px; }
+::-webkit-scrollbar-track{ background: var(--light-color); }
+::-webkit-scrollbar-thumb{ background: var(--primary-color); border-radius:5px; }
+::-webkit-scrollbar-thumb:hover{ background: var(--primary-dark); }
