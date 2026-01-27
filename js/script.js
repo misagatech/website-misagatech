@@ -1,4 +1,6 @@
-// Mobile Menu Toggle
+// ============================================
+// MOBILE MENU TOGGLE
+// ============================================
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.querySelector('.nav-menu');
 
@@ -8,18 +10,25 @@ if (menuToggle && navMenu) {
         menuToggle.innerHTML = navMenu.classList.contains('active') 
             ? '<i class="fas fa-times"></i>' 
             : '<i class="fas fa-bars"></i>';
+        
+        // Cambiar aria-label para accesibilidad
+        menuToggle.setAttribute('aria-label', 
+            navMenu.classList.contains('active') ? 'Cerrar menú' : 'Abrir menú');
     });
     
-    // Close menu when clicking on a link
+    // Cerrar menú al hacer clic en un enlace
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
             menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            menuToggle.setAttribute('aria-label', 'Abrir menú');
         });
     });
 }
 
-// Smooth scrolling for anchor links
+// ============================================
+// SMOOTH SCROLLING
+// ============================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -36,24 +45,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 top: targetPosition,
                 behavior: 'smooth'
             });
+            
+            // Actualizar navegación activa
+            updateActiveNavLink(targetId);
         }
     });
 });
 
-// Animated counter for statistics
+// Actualizar enlace activo en navegación
+function updateActiveNavLink(targetId) {
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === targetId) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// ============================================
+// ANIMATED COUNTER FOR STATISTICS
+// ============================================
 const animateCounter = () => {
     const counters = document.querySelectorAll('.stat-number');
     
     counters.forEach(counter => {
         const target = +counter.getAttribute('data-count');
-        const increment = target / 200;
+        const increment = target / 100;
         let current = 0;
         
         const updateCounter = () => {
             if (current < target) {
                 current += increment;
                 counter.textContent = Math.ceil(current);
-                setTimeout(updateCounter, 10);
+                setTimeout(updateCounter, 20);
             } else {
                 counter.textContent = target;
             }
@@ -63,7 +87,9 @@ const animateCounter = () => {
     });
 };
 
-// Intersection Observer for animations
+// ============================================
+// INTERSECTION OBSERVER FOR ANIMATIONS
+// ============================================
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
@@ -81,11 +107,13 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for animations
+// Observar elementos para animaciones
 const animateElements = document.querySelectorAll('.service-card, .about-stats, .contact-method');
 animateElements.forEach(el => observer.observe(el));
 
-// Form submission handling con Formspree
+// ============================================
+// FORM SUBMISSION HANDLING CON FORMSPREE
+// ============================================
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     // Limpiar formulario al cargar la página
@@ -101,8 +129,6 @@ if (contactForm) {
     });
     
     contactForm.addEventListener('submit', function(e) {
-        // NO prevenimos el comportamiento por defecto - Formspree lo manejará
-        
         // Mostrar estado de carga para mejor experiencia de usuario
         const submitBtn = this.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
@@ -110,25 +136,70 @@ if (contactForm) {
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
         submitBtn.disabled = true;
         
-        // El formulario se limpiará automáticamente gracias al onsubmit en HTML
-        // Pero también limpiamos por JavaScript por si acaso
-        
         // Después de 5 segundos, restaurar el botón (fallback)
         setTimeout(() => {
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
         }, 5000);
-        
-        // Formspree manejará el envío automáticamente
-        // Redirigirá a su página de confirmación
     });
 }
 
-// Update copyright year
-document.getElementById('currentYear').textContent = new Date().getFullYear();
+// ============================================
+// MEJORAR VISIBILIDAD DE BOTONES EN HERO
+// ============================================
+function improveHeroButtons() {
+    const heroButtons = document.querySelectorAll('.hero-actions .btn');
+    const heroSection = document.querySelector('.hero');
+    
+    if (!heroSection || heroButtons.length === 0) return;
+    
+    // Asegurar que los botones tengan buena visibilidad
+    heroButtons.forEach(button => {
+        // Efecto adicional al hover
+        button.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px) scale(1.05)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+    
+    // Añadir clase para efectos adicionales
+    setTimeout(() => {
+        heroButtons.forEach(btn => {
+            btn.classList.add('hero-btn-optimized');
+        });
+    }, 100);
+}
 
 // ============================================
-// EFECTO HEADER UNIFICADO AL HACER SCROLL
+// VERIFICAR IMAGEN DE FONDO DEL HERO
+// ============================================
+function checkHeroBackground() {
+    const heroSection = document.querySelector('.hero');
+    if (!heroSection) return;
+    
+    // Verificar si la imagen de fondo se cargó correctamente
+    const img = new Image();
+    img.src = 'images/heroimagen.png';
+    
+    img.onload = function() {
+        console.log('✅ Imagen del hero cargada correctamente');
+        heroSection.classList.add('bg-loaded');
+    };
+    
+    img.onerror = function() {
+        console.warn('⚠️ Error al cargar imagen del hero, usando color sólido');
+        // Cambiar a un fondo de color sólido si falla la imagen
+        heroSection.style.background = 'linear-gradient(135deg, #163F72 0%, #2A5699 100%)';
+        heroSection.style.backgroundImage = 'none';
+        heroSection.classList.add('bg-fallback');
+    };
+}
+
+// ============================================
+// HEADER SCROLL EFFECT
 // ============================================
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
@@ -140,17 +211,40 @@ window.addEventListener('scroll', () => {
         header.classList.remove('scrolled');
     }
     
-    // Efecto adicional de sombra (opcional)
-    if (window.scrollY > 100) {
-        header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-    } else {
-        header.style.boxShadow = 'var(--shadow-sm)';
-    }
+    // Actualizar navegación activa según scroll
+    updateActiveNavOnScroll();
 });
 
-// Add animation classes on page load
-window.addEventListener('DOMContentLoaded', () => {
-    document.body.classList.add('loaded');
+// Actualizar navegación según posición de scroll
+function updateActiveNavOnScroll() {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollPosition = window.scrollY + 100;
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            updateActiveNavLink(`#${sectionId}`);
+        }
+    });
+}
+
+// ============================================
+// INICIALIZAR TODO CUANDO EL DOM ESTÉ LISTO
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 MisaGatech - Sitio cargado');
+    
+    // Mejorar botones del hero
+    improveHeroButtons();
+    
+    // Verificar imagen de fondo
+    checkHeroBackground();
+    
+    // Actualizar año en copyright
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
     
     // Asegurar estado inicial del header
     const header = document.querySelector('.header');
@@ -158,8 +252,32 @@ window.addEventListener('DOMContentLoaded', () => {
         header.classList.add('scrolled');
     }
     
-    // Asegurar sombra inicial
-    if (window.scrollY > 100) {
-        header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-    }
+    // Actualizar navegación inicial
+    updateActiveNavOnScroll();
+    
+    // Añadir clase loaded al body para transiciones
+    document.body.classList.add('loaded');
+});
+
+// ============================================
+// OPTIMIZACIÓN DE CARGA - LAZY LOADING
+// ============================================
+// Opcional: Si agregas más imágenes en el futuro
+document.addEventListener('DOMContentLoaded', function() {
+    // Configurar Intersection Observer para lazy loading de imágenes
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.add('loaded');
+                observer.unobserve(img);
+            }
+        });
+    });
+    
+    // Observar imágenes para lazy loading
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
 });
